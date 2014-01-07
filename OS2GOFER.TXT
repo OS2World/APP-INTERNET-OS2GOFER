@@ -1,0 +1,49 @@
+Challenge: Use OS/2 to build a farily powerful gopher client program
+with the least amount of code.
+
+Gopher is a protocol for organizing distributed information.  The user
+is presented with a view of folders containing other folders, documents,
+terminal sessions, and simple query servers.  In reality, information is
+retrieved using the TCP/IP network and a very simple protocol.
+
+OS/2 2.0 provides an ideal environment for a gopher client.  Its
+"Workplace Shell" consists of folders containing other folders and
+objects.  If an object is a file it can be opened and displayed. Other
+objects are programs which when run can prompt for input.
+
+Unfortunately, it requires some heavy duty C programming to create new
+object classes.  More importantly, trying to model gopher objects as
+"folders" and "files" interacts with the disk directories in an
+unclear manner, while basing them on "programs" would produce poor
+performance and a lot of I/O to the system object database.
+
+So do something simple first, and get fancy later on.  VREXX is a
+package written by an IBM employee and posted on various OS/2 file
+sources (ftp-os2.nmsu.edu and software.watson.ibm.com).  It allows
+REXX program to display simple dialog boxes and windows.  With a
+small C program to do the gopher protocol, the supplied REXX program,
+and
+
+        IBM TCP/IP for OS/2 1.2.1
+        OS/2 2.0
+
+this code provides a gopher client with a lot of function for
+very little effort.  It is not object oriented, but it can
+compete with character based gopher clients.
+
+What is very nice about this platform is that you can hack
+new features easily.  REXX is very simple and powerful.  The REXX
+program runs in its own character mode window where you can trace
+and single step new code.
+
+This is neither the final word nor a product.  The objective is to
+get the ball rolling and interest others in doing some hacking.
+The source to rodent.c is provided, but recompiling it requires some
+hacked versions of the \TCPIP\INCLUDE\*.h files which are tough to
+distribute without violating IBM copyright.  You are free to
+        1) use the enclosed EXE
+        2) recompile with MS C 6.00 and build a 16 bit version
+        3) rewrite from scratch with your own favorite tool
+but don't write me asking for the *.h files.
+
+Howard Gilbert - Gilbert@YaleVM.ycc.yale.edu
